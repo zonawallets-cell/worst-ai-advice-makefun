@@ -24,6 +24,8 @@ def validate(text):
         problems.append("length %d outside 1-140" % len(text))
     if not text.strip():
         problems.append("only whitespace")
+    if text != text.strip():
+        problems.append("leading or trailing whitespace")
     if "\n" in text or "\r" in text:
         problems.append("contains a line break")
     try:
